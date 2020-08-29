@@ -1,0 +1,52 @@
+{
+  "name": "dashwords-backend",
+  "version": "1.0.0",
+  "description": "dashword services",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rm -rf dist mkdir dist",
+    "build": "npm run prebuild && babel src --out-dir dist -s",
+    "serve": "node dist/index.js",
+    "dev": "NODE_ENV=development nodemon --exec babel-node src/index.js",
+    "start": "NODE_ENV=production npm run build && npm run serve",
+    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
+    "lint": "node_modules/.bin/eslint ./src"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "ioredis": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb-client-encryption": "^1.1.0",
+    "mongoose": "^5.10.2",
+    "morgan": "^1.10.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorMaria/dashwords-backend.git"
+  },
+  "author": "victor.abayomi@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorMaria/dashwords-backend/issues"
+  },
+  "homepage": "https://github.com/VictorMaria/dashwords-backend#readme"
+}
