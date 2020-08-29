@@ -1,0 +1,14 @@
+# dependency directory
+node_modules
+
+# compiled directory
+dist
+
+# environment variables
+.env
+
+# vscode directory
+.vscode
+
+#coverage report
+.DS_Store
