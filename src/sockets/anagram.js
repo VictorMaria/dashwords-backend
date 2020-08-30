@@ -6,8 +6,8 @@ export const addRackToAnagramBank = (socket) => {
       })
 };
 
-export const beamRandomAnagram = async (socket) => {
-    socket.on('randomAnagramRequest', () => {
+export const beamRandomAnagram = (socket) => {
+    socket.on('randomAnagramRequest', async() => {
         const result = await anagramService.beamRandomAnagram();
         socket.emit('randomAnagramResponse', result);
     });

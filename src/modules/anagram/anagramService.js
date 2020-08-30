@@ -14,7 +14,7 @@ export const addToAnagramBank = async (wordList) => {
     try {
         await anagram.bulkWrite(bulkList);
     } catch(error) {
-        console.log(error)
+        console.log(error);
     };
 };
 
@@ -23,7 +23,11 @@ export const beamRandomAnagram = () => {
     return randomAnagram;
 };
 
-export const getRandomAnagram = async (RequiredNumberOfDocuments) => {
-    const result = await anagram.aggregate([{ $sample: { size: RequiredNumberOfDocuments } }]);
-    return result;
+export const getRandomAnagram = async (RequiredNumberOfWords) => {
+    const rack = [];
+    const results = await anagram.aggregate([{ $sample: { size: RequiredNumberOfWords } }]);
+    for(let result of results) {
+        rack.push(result.word);
+    }
+    return rack;
 };
