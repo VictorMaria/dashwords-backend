@@ -8,11 +8,9 @@
     "npm": "6.9.0"
   },
   "scripts": {
-    "prebuild": "rm -rf dist mkdir dist",
-    "build": "npm run prebuild && babel src --out-dir dist -s",
-    "serve": "node dist/index.js",
+    "build": "rimraf ./dist/ && babel src --out-dir dist",
+    "start": "node ./dist/index.js",
     "dev": "NODE_ENV=development nodemon --exec babel-node src/index.js",
-    "start": "NODE_ENV=production npm run build && npm run serve",
     "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "node_modules/.bin/eslint ./src"
   },
@@ -32,6 +30,7 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.10.5",
     "@babel/node": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.10.5",
@@ -43,7 +42,8 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "rimraf": "^2.6.3"
   },
   "repository": {
     "type": "git",
