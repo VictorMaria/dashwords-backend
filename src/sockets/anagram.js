@@ -5,3 +5,10 @@ export const addRackToAnagramBank = (socket) => {
         anagramService.addToAnagramBank(rack);
       })
 };
+
+export const beamRandomAnagram = async (socket) => {
+    socket.on('randomAnagramRequest', () => {
+        const result = await anagramService.beamRandomAnagram();
+        socket.emit('randomAnagramResponse', result);
+    });
+};

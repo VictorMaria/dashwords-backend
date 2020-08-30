@@ -17,3 +17,13 @@ export const addToAnagramBank = async (wordList) => {
         console.log(error)
     };
 };
+
+export const beamRandomAnagram = () => {
+    const randomAnagram = anagram.aggregate([{ $sample: { size: 1 } }]);
+    return randomAnagram;
+};
+
+export const getRandomAnagram = async (RequiredNumberOfDocuments) => {
+    const result = await anagram.aggregate([{ $sample: { size: RequiredNumberOfDocuments } }]);
+    return result;
+};
