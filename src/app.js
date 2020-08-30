@@ -13,10 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
-app.use('*', (req, res) =>
-  res.status(404).json({
-    message: 'Not Found. Use /api/v1 to access the API',
-  }),
-);
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Spell something magical with DASHWORDS' });
+});
 
 export default app;
